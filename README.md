@@ -1,32 +1,53 @@
-# React + TypeScript + Vite
+# Motion Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A collection of fluid micro-interactions and interactive components built with React and Framer Motion.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Segmented Tabs**: Sliding pill navigation with spring transitions and hover previews.
+- **Command Palette**: Expandable search modal with drilldown submenus and dynamic height morphing.
+- **Dynamic Island**: Adaptive status pill transitioning across idle, upload, audio, and call states.
+- **Expandable Cards**: Project cards that expand into focused modals with shared element transitions.
+- **Task Reorder**: Interactive drag-and-drop task prioritization with elevation feedback.
+- **3D Interactive Card**: Perspective card with real-time cursor tracking and dynamic surface reflection.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript
+- Framer Motion
+- Tailwind CSS v4
+- Lucide React
+- Vite
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+```bash
+# Install dependencies
+pnpm install
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+# Run development server
+pnpm dev
+
+# Build for production
+pnpm build
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Structure
+
+```text
+src/
+├── components/
+│   └── motion-features/           # Interactive components
+│       ├── command-menu/
+│       ├── dynamic-island/
+│       ├── expandable-card/
+│       ├── reorder-list/
+│       ├── segmented-tabs/
+│       ├── tilt-card/
+│       └── index.ts
+├── lib/
+│   ├── motion-tokens.ts           # Spring physics presets
+│   └── utils.ts
+├── App.tsx                        # Showcase layout
+└── main.tsx
+```
