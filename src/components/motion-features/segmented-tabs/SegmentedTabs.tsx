@@ -78,7 +78,7 @@ export const SegmentedTabs: React.FC = () => {
 
               {tab.badge !== undefined && (
                 <span
-                  className={`px-1.5 py-0.5 text-[11px] font-mono rounded-full font-medium transition-colors ${
+                  className={`inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[11px] font-medium leading-none tabular-nums rounded-full transition-colors ${
                     isActive
                       ? 'bg-indigo-500/20 text-indigo-300'
                       : 'bg-zinc-800 text-zinc-400'
