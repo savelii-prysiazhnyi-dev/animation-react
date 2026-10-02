@@ -61,7 +61,7 @@ export default function App() {
   return (
     <MotionConfig transition={{ duration: slowMotion ? 1.2 : undefined }}>
       <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-zinc-700 selection:text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 space-y-8 sm:space-y-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 space-y-8 sm:space-y-12">
           {/* Hero Section */}
           <header className="flex flex-col items-center text-center space-y-3">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
@@ -100,7 +100,7 @@ export default function App() {
           </header>
 
           {/* Clean Components Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {features.map((feature) => (
               <section
                 key={feature.id}

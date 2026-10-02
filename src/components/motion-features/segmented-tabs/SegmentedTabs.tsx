@@ -28,7 +28,7 @@ export const SegmentedTabs: React.FC = () => {
         role="tablist"
         aria-label="Navigation Tabs"
         onMouseLeave={() => setHoveredTab(null)}
-        className="relative flex items-center p-1 sm:p-1.5 rounded-xl bg-zinc-900 border border-zinc-800 shadow-inner max-w-full overflow-x-auto no-scrollbar"
+        className="relative grid grid-cols-2 sm:inline-flex sm:flex-row items-center justify-center gap-1 sm:gap-1.5 p-1.5 rounded-xl bg-zinc-900 border border-zinc-800 shadow-inner w-full sm:w-auto max-w-xs sm:max-w-none"
       >
         {TABS.map((tab) => {
           const isActive = activeTab === tab.id
@@ -42,7 +42,7 @@ export const SegmentedTabs: React.FC = () => {
               aria-selected={isActive}
               onClick={() => setActiveTab(tab.id)}
               onMouseEnter={() => setHoveredTab(tab.id)}
-              className="relative z-10 shrink-0 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors select-none outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
+              className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium transition-colors select-none outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg shrink-0"
             >
               {/* Active selection pill */}
               {isActive && (
@@ -63,13 +63,13 @@ export const SegmentedTabs: React.FC = () => {
               )}
 
               <Icon
-                className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors duration-150 ${
+                className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-colors duration-150 ${
                   isActive ? 'text-indigo-400' : 'text-zinc-400 group-hover:text-zinc-200'
                 }`}
               />
 
               <span
-                className={`transition-colors duration-150 ${
+                className={`whitespace-nowrap transition-colors duration-150 ${
                   isActive ? 'text-zinc-100 font-semibold' : 'text-zinc-400 hover:text-zinc-200'
                 }`}
               >
@@ -78,7 +78,7 @@ export const SegmentedTabs: React.FC = () => {
 
               {tab.badge !== undefined && (
                 <span
-                  className={`inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[10px] sm:text-[11px] font-medium leading-none tabular-nums rounded-full transition-colors ${
+                  className={`inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[11px] font-medium leading-none tabular-nums rounded-full shrink-0 transition-colors ${
                     isActive
                       ? 'bg-indigo-500/20 text-indigo-300'
                       : 'bg-zinc-800 text-zinc-400'
@@ -93,7 +93,7 @@ export const SegmentedTabs: React.FC = () => {
       </div>
 
       {/* Dynamic Tab Panel Content */}
-      <div className="w-full max-w-md min-h-[80px] sm:min-h-[100px] p-3 sm:p-4 rounded-xl bg-zinc-900/50 border border-zinc-800/80 flex items-center justify-center">
+      <div className="w-full max-w-xs sm:max-w-md min-h-[80px] sm:min-h-[100px] p-4 rounded-xl bg-zinc-900/50 border border-zinc-800/80 flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
