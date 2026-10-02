@@ -60,19 +60,19 @@ export const ReorderList: React.FC = () => {
                   boxShadow: '0 12px 24px -6px rgba(0, 0, 0, 0.6)',
                   cursor: 'grabbing',
                 }}
-                className={`flex items-center justify-between p-3 rounded-xl border transition-colors select-none ${
+                className={`flex items-center justify-between p-2.5 sm:p-3 rounded-xl border transition-colors select-none ${
                   isDragging
                     ? 'bg-zinc-800 border-zinc-600 z-20'
                     : 'bg-zinc-900 border-zinc-800 hover:border-zinc-700'
                 }`}
               >
-                <div className="flex items-center gap-3">
-                  <span className="cursor-grab active:cursor-grabbing text-zinc-500 hover:text-zinc-300">
+                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+                  <span className="cursor-grab active:cursor-grabbing text-zinc-500 hover:text-zinc-300 shrink-0 touch-none">
                     <GripVertical className="w-4 h-4" />
                   </span>
 
-                  <div>
-                    <div className="text-xs font-medium text-zinc-200">{task.title}</div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-xs font-medium text-zinc-200 truncate">{task.title}</div>
                     <div className="mt-1">
                       <span
                         className={`text-[10px] font-mono px-1.5 py-0.5 rounded capitalize ${
@@ -85,7 +85,7 @@ export const ReorderList: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="w-6 h-6 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-[10px] font-mono font-medium text-zinc-300">
+                <div className="w-6 h-6 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-[10px] font-mono font-medium text-zinc-300 shrink-0 ml-2">
                   {task.assignee}
                 </div>
               </Reorder.Item>

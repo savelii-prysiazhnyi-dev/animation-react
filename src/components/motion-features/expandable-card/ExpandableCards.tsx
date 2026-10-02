@@ -52,7 +52,7 @@ export const ExpandableCards: React.FC = () => {
   return (
     <div className="w-full flex flex-col items-center">
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
         {PROJECTS.map((project) => (
           <motion.div
             key={project.id}
@@ -60,11 +60,11 @@ export const ExpandableCards: React.FC = () => {
             onClick={() => setActiveCardId(project.id)}
             transition={springSmooth}
             whileHover={{ y: -3 }}
-            className="group relative cursor-pointer overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 hover:border-zinc-700 transition-colors shadow-sm"
+            className="group relative cursor-pointer overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/70 p-4 sm:p-5 hover:border-zinc-700 transition-colors shadow-sm"
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-50`} />
 
-            <div className="relative z-10 flex flex-col justify-between h-full space-y-4">
+            <div className="relative z-10 flex flex-col justify-between h-full space-y-3 sm:space-y-4">
               <div>
                 <motion.span
                   layoutId={`category-${project.id}`}
@@ -74,7 +74,7 @@ export const ExpandableCards: React.FC = () => {
                 </motion.span>
                 <motion.h3
                   layoutId={`title-${project.id}`}
-                  className="mt-1 text-base font-semibold text-zinc-100 group-hover:text-white"
+                  className="mt-1 text-sm sm:text-base font-semibold text-zinc-100 group-hover:text-white"
                 >
                   {project.title}
                 </motion.h3>
@@ -98,7 +98,7 @@ export const ExpandableCards: React.FC = () => {
       {/* Expanded Modal */}
       <AnimatePresence>
         {activeCard && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -110,9 +110,9 @@ export const ExpandableCards: React.FC = () => {
             <motion.div
               layoutId={`card-${activeCard.id}`}
               transition={springSmooth}
-              className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 shadow-2xl z-10"
+              className="relative w-full max-w-lg max-h-[85vh] sm:max-h-[90vh] overflow-y-auto rounded-2xl bg-zinc-900 border border-zinc-800 shadow-2xl z-10 my-auto"
             >
-              <div className={`p-6 bg-gradient-to-br ${activeCard.gradient}`}>
+              <div className={`p-4 sm:p-6 bg-gradient-to-br ${activeCard.gradient}`}>
                 <div className="flex items-start justify-between">
                   <motion.span
                     layoutId={`category-${activeCard.id}`}
@@ -131,14 +131,14 @@ export const ExpandableCards: React.FC = () => {
 
                 <motion.h3
                   layoutId={`title-${activeCard.id}`}
-                  className="mt-2 text-xl font-bold text-white"
+                  className="mt-2 text-lg sm:text-xl font-bold text-white"
                 >
                   {activeCard.title}
                 </motion.h3>
 
                 <motion.p
                   layoutId={`desc-${activeCard.id}`}
-                  className="mt-2 text-sm text-zinc-300 leading-relaxed"
+                  className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed"
                 >
                   {activeCard.description}
                 </motion.p>
@@ -149,7 +149,7 @@ export const ExpandableCards: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 6 }}
                 transition={{ duration: 0.18 }}
-                className="p-6 space-y-5 bg-zinc-900"
+                className="p-4 sm:p-6 space-y-4 sm:space-y-5 bg-zinc-900"
               >
                 <p className="text-xs text-zinc-400 leading-relaxed">
                   {activeCard.details}

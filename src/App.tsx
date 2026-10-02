@@ -61,17 +61,17 @@ export default function App() {
   return (
     <MotionConfig transition={{ duration: slowMotion ? 1.2 : undefined }}>
       <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-zinc-700 selection:text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-16 space-y-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 space-y-8 sm:space-y-12">
           {/* Hero Section */}
           <header className="flex flex-col items-center text-center space-y-3">
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
               Motion Features
             </h1>
-            <p className="text-sm text-zinc-400 max-w-lg">
+            <p className="text-xs sm:text-sm text-zinc-400 max-w-lg px-2">
               A collection of fluid micro-interactions and interactive components built with React and Framer Motion.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-1 sm:pt-2">
               <label
                 htmlFor="slow-mo-switch"
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 hover:text-zinc-200 cursor-pointer select-none transition-colors"
@@ -100,14 +100,14 @@ export default function App() {
           </header>
 
           {/* Clean Components Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {features.map((feature) => (
               <section
                 key={feature.id}
-                className="flex flex-col justify-between rounded-2xl bg-zinc-900/60 border border-zinc-800 p-6 space-y-6"
+                className="flex flex-col justify-between rounded-2xl bg-zinc-900/60 border border-zinc-800 p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-hidden"
               >
                 <div className="space-y-1">
-                  <h2 className="text-base font-semibold text-zinc-100">
+                  <h2 className="text-sm sm:text-base font-semibold text-zinc-100">
                     {feature.title}
                   </h2>
                   <p className="text-xs text-zinc-400">
@@ -115,14 +115,14 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="w-full flex items-center justify-center min-h-[160px]">
+                <div className="w-full flex items-center justify-center min-h-[140px] sm:min-h-[160px] py-1">
                   {feature.component}
                 </div>
               </section>
             ))}
           </div>
 
-          <footer className="pt-8 border-t border-zinc-900 text-center text-xs text-zinc-600">
+          <footer className="pt-6 sm:pt-8 border-t border-zinc-900 text-center text-xs text-zinc-600">
             Interactive Animation Showcase • React & Framer Motion
           </footer>
         </div>

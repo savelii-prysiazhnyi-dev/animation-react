@@ -33,18 +33,35 @@ export const TiltCard: React.FC = () => {
     mouseY.set(0)
   }
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!cardRef.current || !e.touches[0]) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const touch = e.touches[0]
+    const x = Math.max(-0.5, Math.min(0.5, (touch.clientX - rect.left) / rect.width - 0.5))
+    const y = Math.max(-0.5, Math.min(0.5, (touch.clientY - rect.top) / rect.height - 0.5))
+    mouseX.set(x)
+    mouseY.set(y)
+  }
+
+  const handleTouchEnd = () => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }
+
   return (
     <div className="w-full flex flex-col items-center py-2 [perspective:1000px]">
       <motion.div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         style={{
           rotateX,
           rotateY,
           transformStyle: 'preserve-3d',
         }}
-        className="relative w-72 sm:w-80 h-44 rounded-2xl border border-zinc-750 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black p-5 shadow-xl cursor-pointer overflow-hidden select-none"
+        className="relative w-full max-w-[280px] sm:max-w-[320px] h-40 sm:h-44 rounded-2xl border border-zinc-750 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black p-4 sm:p-5 shadow-xl cursor-pointer overflow-hidden select-none"
       >
         {/* Dynamic Specular Glare */}
         <motion.div
@@ -61,19 +78,19 @@ export const TiltCard: React.FC = () => {
             <span className="text-xs font-mono font-medium tracking-wider text-zinc-400 uppercase">
               Developer Access
             </span>
-            <Cpu className="w-5 h-5 text-zinc-500" />
+            <Cpu className="w-5 h-5 text-zinc-500 shrink-0" />
           </div>
 
           <div>
-            <div className="font-mono text-sm tracking-widest text-zinc-200">
+            <div className="font-mono text-xs sm:text-sm tracking-widest text-zinc-200">
               •••• •••• •••• 4092
             </div>
-            <div className="text-[11px] text-zinc-500 mt-1">Verified Member</div>
+            <div className="text-[10px] sm:text-[11px] text-zinc-500 mt-1">Verified Member</div>
           </div>
 
-          <div className="flex items-center justify-between pt-2 border-t border-zinc-800 text-[11px] text-zinc-400">
+          <div className="flex items-center justify-between pt-2 border-t border-zinc-800 text-[10px] sm:text-[11px] text-zinc-400">
             <div className="flex items-center gap-1.5 text-emerald-400">
-              <ShieldCheck className="w-3.5 h-3.5" />
+              <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
               <span>Active</span>
             </div>
             <span className="font-mono text-zinc-500">Exp 12/28</span>

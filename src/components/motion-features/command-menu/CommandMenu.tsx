@@ -116,14 +116,14 @@ export const CommandMenu: React.FC = () => {
       {/* Trigger Bar */}
       <button
         onClick={() => setIsOpen(true)}
-        className="group flex items-center justify-between w-full max-w-sm px-4 py-3 text-sm rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-colors text-zinc-400 hover:text-zinc-200 shadow-sm"
+        className="group flex items-center justify-between w-full max-w-sm px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-colors text-zinc-400 hover:text-zinc-200 shadow-sm"
       >
-        <div className="flex items-center gap-2.5">
-          <Search className="w-4 h-4 text-zinc-500 group-hover:text-indigo-400 transition-colors" />
-          <span>Search actions or navigate...</span>
+        <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+          <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-500 group-hover:text-indigo-400 transition-colors shrink-0" />
+          <span className="truncate">Search actions or navigate...</span>
         </div>
-        <kbd className="flex items-center gap-0.5 text-xs font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700/60">
-          <Command className="w-3 h-3" />
+        <kbd className="flex items-center gap-0.5 text-[10px] sm:text-xs font-mono px-1.5 sm:px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700/60 shrink-0">
+          <Command className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
           <span>K</span>
         </kbd>
       </button>
@@ -148,7 +148,7 @@ export const CommandMenu: React.FC = () => {
       {/* Dialog Modal */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -163,10 +163,10 @@ export const CommandMenu: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={springSmooth}
-              className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 shadow-2xl z-10"
+              className="relative w-full max-w-lg max-h-[85vh] overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 shadow-2xl z-10"
             >
               {/* Search Header */}
-              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-zinc-800 bg-zinc-900/90">
+              <div className="flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-3 sm:py-3.5 border-b border-zinc-800 bg-zinc-900/90">
                 {activeSubMenu ? (
                   <button
                     onClick={() => setActiveSubMenu(null)}
