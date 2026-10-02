@@ -2,6 +2,12 @@
 
 A collection of fluid micro-interactions and interactive components built with React and Framer Motion.
 
+
+
+https://github.com/user-attachments/assets/87e63409-8e94-4d5d-980d-200acd24c520
+
+
+
 ## Features
 
 - **Segmented Tabs**: Sliding pill navigation with spring transitions and hover previews.
