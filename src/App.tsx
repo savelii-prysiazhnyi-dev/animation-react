@@ -104,7 +104,7 @@ export default function App() {
             {features.map((feature) => (
               <section
                 key={feature.id}
-                className="flex flex-col justify-between rounded-2xl bg-zinc-900/60 border border-zinc-800 p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-hidden"
+                className="flex flex-col rounded-2xl bg-zinc-900/60 border border-zinc-800 p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-hidden"
               >
                 <div className="space-y-1">
                   <h2 className="text-sm sm:text-base font-semibold text-zinc-100">
@@ -115,7 +115,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="w-full flex items-center justify-center min-h-[140px] sm:min-h-[160px] py-1">
+                <div className="w-full flex-1 flex items-center justify-center min-h-[160px] sm:min-h-[180px] py-2">
                   {feature.component}
                 </div>
               </section>

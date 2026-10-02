@@ -49,7 +49,7 @@ export const TiltCard: React.FC = () => {
   }
 
   return (
-    <div className="w-full flex flex-col items-center py-2 [perspective:1000px]">
+    <div className="w-full flex-1 flex flex-col items-center justify-center py-2 [perspective:1000px]">
       <motion.div
         ref={cardRef}
         onMouseMove={handleMouseMove}
